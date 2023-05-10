@@ -1,7 +1,6 @@
 import { API_KEY } from '$env/static/private';
 
 // Put these paramaters here in constants to keep things tidy
-const url = 'https://api.spacetraders.io/v2/systems/X1-DF55/waypoints/X1-DF55-20250Z';
 const options = {
   headers: {
     'Content-Type': 'application/json',
@@ -10,7 +9,11 @@ const options = {
 };
 
 // Async load function is needed so that this runs when the corresponding page loads
-export async function load() {
+export async function load( {params} ) {
+  // Get the parameters from the link followed in order to get the right location
+  console.log(params.location);
+  const url = 'https://api.spacetraders.io/v2/systems/X1-DF55/waypoints/' + params.location;
+
   const response = await fetch(url, options); // Run the fetch and bung the result in a variable
   const location_details = await response.json(); // Turn the response (pnce we have one) into usable json format
 

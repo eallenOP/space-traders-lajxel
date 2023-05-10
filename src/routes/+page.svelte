@@ -2,6 +2,11 @@
 	// Grab anything fetched by the corresponding +page.js file (as though it's a prop)
 	export let data;
 	let agent = data.agent_details.data; // Extract the usable data into a tidy variable
+
+	// Get the system of the agent headquarter location (on hold)
+	// const systemArray = agent.headquarters.split('-', 2);
+	// let system = systemArray.join("-");
+	// console.log(system);
 </script>
 
 <svelte:head>
@@ -15,7 +20,7 @@
 	</h1>
 
 	<h2>
-		of headquarters <a href="/location">{agent.headquarters}</a>
+		Location of headquarters: <a href="/location/{agent.headquarters}">{agent.headquarters}</a>
 	</h2>
 	<p>Credits: {agent.credits}</p>
 
