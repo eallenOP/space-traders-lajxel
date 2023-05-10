@@ -1,6 +1,7 @@
 <script>
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	// Grab anything fetched by the corresponding +page.js file (as though it's a prop)
+	export let data;
+	let agent = data.agent_details.data; // Extract the usable data into a tidy variable
 </script>
 
 <svelte:head>
@@ -10,23 +11,19 @@
 
 <section>
 	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
+		Agent is {agent.symbol}
 	</h1>
 
 	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
+		of headquarters {agent.headquarters}
 	</h2>
+
+	<p>Credits: {agent.credits}</p>
 
 </section>
 
 <style>
+/* Came with the demo app */
 	section {
 		display: flex;
 		flex-direction: column;
