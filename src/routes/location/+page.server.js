@@ -1,9 +1,7 @@
-/* This file demonstrates one official option for fetching in SvelteKit, including hiding a token from the front end. Quick reference followed from https://svelte.deepwebworks.com/blog/kit2 */
-
 import { API_KEY } from '$env/static/private';
 
 // Put these paramaters here in constants to keep things tidy
-const url = 'https://api.spacetraders.io/v2/my/agent';
+const url = 'https://api.spacetraders.io/v2/systems/X1-DF55/waypoints/X1-DF55-20250Z';
 const options = {
   headers: {
     'Content-Type': 'application/json',
@@ -14,13 +12,13 @@ const options = {
 // Async load function is needed so that this runs when the corresponding page loads
 export async function load() {
   const response = await fetch(url, options); // Run the fetch and bung the result in a variable
-  const agent_details = await response.json(); // Turn the response (pnce we have one) into usable json format
+  const location_details = await response.json(); // Turn the response (pnce we have one) into usable json format
 
   // Check that it worked and return it so the page can use it, or give us a page not found status
-  if (agent_details) {
-    console.log(agent_details);
+  if (location_details) {
+    console.log(location_details);
     return {
-      agent_details,
+      location_details,
     };
   }
   return {

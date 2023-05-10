@@ -15,9 +15,8 @@
 	</h1>
 
 	<h2>
-		of headquarters {agent.headquarters}
+		of headquarters <a href="/location">{agent.headquarters}</a>
 	</h2>
-
 	<p>Credits: {agent.credits}</p>
 
 </section>
