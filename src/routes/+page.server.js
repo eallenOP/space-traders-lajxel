@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* This file demonstrates one official option for fetching in SvelteKit, including hiding a token from the front end. Quick reference followed from https://svelte.deepwebworks.com/blog/kit2 */
 
 import { API_KEY } from '$env/static/private';
@@ -12,7 +13,7 @@ const options = {
 };
 
 // Async load function is needed so that this runs when the corresponding page loads
-export async function load() {
+export async function load({ fetch }) {
   const response = await fetch(url, options); // Run the fetch and bung the result in a variable
   const agent_details = await response.json(); // Turn the response (pnce we have one) into usable json format
 
