@@ -4,8 +4,6 @@
   $: location = data.location_details.data; // Reactive so you can follow links to other locations
 </script>
 
-<a href="/">home</a>
-
 <h1>Location: {location.symbol}</h1>
 <h2>Type: {location.type}; Faction: {location.faction.symbol}</h2>
 

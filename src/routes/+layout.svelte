@@ -4,6 +4,10 @@
 
 <div class="app">
 
+	<nav>
+		<a href="/">home</a>
+		<a href="/contracts">contracts</a>
+	</nav>
 	<main>
 		<slot />
 	</main>
