@@ -1,7 +1,23 @@
 <script>
+// @ts-nocheck
+
 	export let data;
 	const contracts = data.contracts.data;
 	const meta = data.contracts.meta;
+
+	// Accept a contract
+	const acceptContract = async (id) => {
+		const response = await fetch(`https://api.spacetraders.io/v2/my/contracts/${id}/accept`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': data.token
+			}
+		});
+		const json = await response.json();
+		console.log(json);
+		location.reload();
+	}
 </script>
 
 <h1>Contracts</h1>
@@ -29,6 +45,7 @@
 				<p>and fulfilled</p>
 			{:else}
 				<p>Not Accepted</p>
+				<button on:click={acceptContract(contract.id)}>Accept contract</button>
 			{/if}
 	</div>
 {/each}

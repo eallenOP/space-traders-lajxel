@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { API_KEY } from '$env/static/private';
 
 // Put these paramaters here in constants to keep things tidy
@@ -19,5 +20,6 @@ export async function load({ fetch }) {
     console.log(contracts);
     return {
       contracts,
+      token: API_KEY
     };
   }
