@@ -36,6 +36,10 @@
 		box-sizing: border-box;
 	}
 
+	nav a {
+		margin: 0.5em;
+	}
+
 	footer {
 		display: flex;
 		flex-direction: column;
