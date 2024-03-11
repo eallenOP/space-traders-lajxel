@@ -7,6 +7,7 @@
 	<nav>
 		<a href="/">home</a>
 		<a href="/contracts">contracts</a>
+		<a href="/ships">ships</a>
 	</nav>
 	<main>
 		<slot />
