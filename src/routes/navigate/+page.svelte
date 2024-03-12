@@ -1,11 +1,17 @@
 <script>
 	// @ts-nocheck
 	export let data;
+
+// Grab the home system from the agent data
+let hq = data.agent_details.data.headquarters;
+let system = hq.split('-', 2).join('-');
+
+
 	let selectedType;
     let locationData;
 	const handleNavigate = async (selectedType) => {
 		const res = await fetch(
-			`https://api.spacetraders.io/v2/systems/X1-QV57/waypoints?${selectedType}`,
+			`https://api.spacetraders.io/v2/systems/${system}/waypoints?${selectedType}`,
 			{
 				headers: {
 					'Content-Type': 'application/json',
