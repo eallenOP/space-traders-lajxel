@@ -1,10 +1,12 @@
 <script>
 	//@ts-nocheck
+	import { browser } from '$app/environment';
 	// Get the data fetched on the server and store it somewhere tidy
 	export let data;
 	$: location = data.location_details.data; // Reactive so you can follow links to other locations
 
 	let shipChoice;
+	let navResult;
 	const navigateHere = async (shipChoice) => {
 		const options = {
 			method: 'POST',
@@ -21,8 +23,12 @@
 			`https://api.spacetraders.io/v2/my/ships/${shipChoice}/navigate`,
 			options
 		);
+		if (!navRes.ok) {
+			console.error('Failed to navigate ship');
+		}
 		const navData = await navRes.json();
 		console.log(navData);
+		navResult = navData;
 	};
 </script>
 
@@ -38,6 +44,14 @@
 		{/each}
 	</select>
 	<button on:click={() => navigateHere(shipChoice)}>Go</button>
+	<!-- If the user has navigated display the response -->
+	{#if navResult}
+		{#if navResult.error}
+			<p>{navResult.error.message}</p>
+		{:else}
+			<p>Ship {shipChoice} is now navigating to {navResult.data.nav.waypointSymbol} and has {navResult.data.fuel.current} fuel remaining.</p>
+		{/if}
+	{/if}
 </div>
 
 <!-- Check if there are orbitals and display them as links -->
