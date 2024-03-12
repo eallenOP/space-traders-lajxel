@@ -28,13 +28,16 @@ let system = hq.split('-', 2).join('-');
 
 <h1>Navigation</h1>
 
-<select bind:value={selectedType}>
+<div>
+    <select bind:value={selectedType}>
 	<option value="type=ENGINEERED_ASTEROID">Engineered Asteroid</option>
 	<option value="traits=SHIPYARD">Shipyard</option>
 	<option value="traits=MARKETPLACE">Marketplace</option>
 </select>
 <!-- Get the value from the select box and send it to the handleNavigate funtion when clicking a button -->
 <button on:click={() => handleNavigate(selectedType)}>Navigate</button>
+</div>
+
 
 {#if locationData}
     {#each locationData.data as location}
