@@ -23,11 +23,18 @@ export async function load( {fetch, params} ) {
   const response = await fetch(url, options); // Run the fetch and bung the result in a variable
   const location_details = await response.json(); // Turn the response (pnce we have one) into usable json format
 
+  // Also fetch ships
+  const shipsUrl = 'https://api.spacetraders.io/v2/my/ships';
+  const shipsRes = await fetch(shipsUrl, options);
+  const shipsList = await shipsRes.json();
+
   // Check that it worked and return it so the page can use it, or give us a page not found status
   if (location_details) {
     console.log(location_details);
     return {
       location_details,
+      shipsList,
+      token: API_KEY
     };
   }
   return {
