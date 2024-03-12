@@ -45,7 +45,7 @@
 				<p>and fulfilled</p>
 			{:else}
 				<p>Not Accepted</p>
-				<button on:click={acceptContract(contract.id)}>Accept contract</button>
+				<button on:click={() => acceptContract(contract.id)}>Accept contract</button>
 			{/if}
 	</div>
 {/each}
