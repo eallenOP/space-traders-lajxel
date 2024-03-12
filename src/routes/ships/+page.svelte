@@ -23,7 +23,7 @@
 {#each ships as ship}
 	<div class="ship-box">
 		<section>
-			<h2>{ship.symbol}</h2>
+			<h2><a href="/ships/{ship.symbol}">{ship.symbol}</a></h2>
 			<p>{ship.frame.name}: {ship.frame.description}</p>
 			<p>Current location: {ship.nav.waypointSymbol}</p>
 			<p>Status: {ship.nav.status}</p>
