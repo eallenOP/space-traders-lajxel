@@ -14,7 +14,7 @@
 <p>Status: {ship.nav.status}</p>
 <p>Flight mode: {ship.nav.flightMode}</p>
 <p>Fuel: {ship.fuel.current}</p>
-<h3>Route</h3>
+<h3>Latest Route</h3>
 <p>Origin: {ship.nav.route.origin.symbol} ({ship.nav.route.origin.type}) <small>at {ship.nav.route.origin.x}, {ship.nav.route.origin.y}</small></p>
 <p>Destination: {ship.nav.route.destination.symbol} ({ship.nav.route.destination.type}) <small>at {ship.nav.route.destination.x}, {ship.nav.route.destination.y}</small></p>
 <p>Departure time: {new Date(ship.nav.route.departureTime).toLocaleTimeString()}</p>
