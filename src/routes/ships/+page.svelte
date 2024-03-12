@@ -25,7 +25,7 @@
 		<section>
 			<h2><a href="/ships/{ship.symbol}">{ship.symbol}</a></h2>
 			<p>{ship.frame.name}: {ship.frame.description}</p>
-			<p>Current location: {ship.nav.waypointSymbol}</p>
+			<p>Current location: <a href="location/{ship.nav.waypointSymbol}">{ship.nav.waypointSymbol}</a></p>
 			<p>Status: {ship.nav.status}</p>
             <!-- Quick action to doc or orbit a ship -->
 			{#if ship.nav.status === 'DOCKED'}
